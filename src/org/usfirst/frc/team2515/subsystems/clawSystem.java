@@ -60,11 +60,11 @@ public class clawSystem extends Subsystem {
     public void stop() {    			
 		clawMotor.set(0.0);
     }
-    public void open() {
-    		clawMotor.set(0.75);
+    public void open(double speed) {
+    		clawMotor.set(speed);
     }
     public void close() {
-    		clawMotor.set(-0.75);
+    		clawMotor.set(-1);
     }
     public void setClawOpen() {
     		clawIsOpen = true;
@@ -76,7 +76,8 @@ public class clawSystem extends Subsystem {
     		return clawIsOpen;
     }
     public void grab() {
-    		clawMotor.set(-0.1);
+    		// When close claw ends, leave power to grip power cube.
+    		clawMotor.set(-0.25);
     }
 }
 

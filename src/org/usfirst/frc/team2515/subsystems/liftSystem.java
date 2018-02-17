@@ -86,13 +86,13 @@ public class liftSystem extends Subsystem {
 		return false;
 	}
 	public Command liftToMiddle() {
-		if (liftEncoder.getDistance() <= 1300) {
-			while (liftEncoder.getDistance() <= 1300) {
+		if (liftEncoder.getDistance() <= 2500) {
+			while (liftEncoder.getDistance() <= 2500) {
 				raiseLift();
 			}
 			return null;
-		} else if (liftEncoder.getDistance() >= 1400){
-			while (liftEncoder.getDistance() >= 1400) {
+		} else if (liftEncoder.getDistance() >= 2500){
+			while (liftEncoder.getDistance() >= 2500) {
 				lowerLift();
 			}
 			return null;
@@ -101,15 +101,15 @@ public class liftSystem extends Subsystem {
 		}
 	}
 	public boolean atMiddle() {
-		double lowerbound = 1300;
-		double upperbound = 1400;
+		double lowerbound = 2400;
+		double upperbound = 2500;
 		if (lowerbound <= liftEncoder.getDistance()  && liftEncoder.getDistance() <= upperbound) {
 			return true;
 		}
 		return false;
 	}
 	public boolean atTop() {
-		if (liftEncoder.getDistance() >= 2700) {
+		if (liftEncoder.getDistance() >= 5150) {
 			return true;
 		}
 		return false;
